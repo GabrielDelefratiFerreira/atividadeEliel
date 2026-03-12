@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -22,7 +23,16 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public Optional<ProdutoModel> findId(Long id){
+        return produtoRepository.findById(id);
+    }
+
     public void deletarProduto(Long id){
         produtoRepository.deleteById(id);
+    }
+
+    public ProdutoModel atualizar(Long id, ProdutoModel produto){
+        ProdutoModel model = produtoRepository.findById(id).get();
+        return produtoRepository.save(model);
     }
 }
