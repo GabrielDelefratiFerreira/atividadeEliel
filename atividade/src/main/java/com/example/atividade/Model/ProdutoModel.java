@@ -1,5 +1,6 @@
 package com.example.atividade.Model;
 
+import com.example.atividade.Enum.ProdutoEnum;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class ProdutoModel {
     private String nome;
     private double preco;
     private Integer quantidadeEmEstoque;
+    private ProdutoEnum status;
 
     public ProdutoModel(){
 
@@ -47,5 +49,13 @@ public class ProdutoModel {
 
     public void setQuantidadeEmEstoque(Integer quantidadeEmEstoque) {
         this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+
+    public ProdutoEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(ProdutoEnum status) {
+        this.status = status;
     }
 }
